@@ -1,0 +1,32 @@
+﻿Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+US East (N. Virginia),Route 53 Estimate,Amazon Route 53,0,938,11256,USD,"Number of domains stored (1), Hosted Zones (1), Basic Checks Within AWS (100), Number of Elastic Network Interfaces (10)"
+US East (N. Virginia),VPC Estimate,Network Address Translation (NAT) Gateway,0,37.35,448.2,USD,Number of NAT Gateways (1)
+US East (N. Virginia),VPC Estimate,Data Transfer,0,204.8,2457.6,USD,"DT Inbound: Internet (0 TB per month), DT Outbound: All other regions (5 TB per month), DT Intra-Region: (5 TB per month), Data transfer cost (204.8)"
+US East (N. Virginia),Appliction Load Balancer Estimate,Application Load Balancer,0,1200.85,14410.2,USD,Number of Application Load Balancers (2)
+US East (N. Virginia),Web Server Estimate,Amazon EC2,0,1183.25,14199,USD,"Operating system (Linux), Quantity (18), Pricing strategy (On-Demand Instances), Storage amount (50 GB), Instance type (t3.large)"
+US East (N. Virginia),Application Web Server Estimate,Amazon EC2,0,1475.1,17701.2,USD,"Operating system (Linux), Quantity (22), Pricing strategy (On-Demand Instances), Storage amount (50 GB), Instance type (c5.large)"
+US East (N. Virginia),S3 Estimate,S3 Standard,0,447.49,5369.88,USD,S3 Standard storage (19 TB per month)
+US East (N. Virginia),S3 Estimate,S3 Standard - Infrequent Access,0,256,3072,USD,S3 Standard-IA storage (20 TB per month)
+US East (N. Virginia),S3 Estimate,Data Transfer,0,20.48,245.76,USD,"DT Inbound: Not selected (0 TB per month), DT Outbound: All other regions (1 TB per month)"
+US East (N. Virginia),CloudFront Estimate,Amazon CloudFront,0,10.5,126,USD,"Data transfer out to internet (100 GB per month), Data transfer out to origin (100 GB per month), Number of requests (HTTPS) ( per month)"
+US East (N. Virginia),PostGres Estimate,Amazon RDS for PostgreSQL,0,2583.12,30997.44,USD,"Storage volume (General Purpose SSD (gp2)), Storage amount (1 TB per month), Nodes (2), Instance Type (db.m2.2xlarge), Utilization (On-Demand only) (100 %Utilized/Month), Deployment Option (Multi-AZ), Pricing Model (OnDemand), Additional backup storage (1 TB)"
+US East (N. Virginia),CloudWatch Estimate,Amazon CloudWatch,0,155.9,1870.8,USD,"Number of Metrics (includes detailed and custom metrics) (100), Standard Logs: Data Ingested (100 GB), Logs Delivered to CloudWatch Logs: Data Ingested (100 GB), Logs Delivered to S3: Data Ingested (100 GB)"
+US East (N. Virginia),Web App Firewall Estimate,AWS Web Application Firewall (WAF),0,4050,48600,USD,"Number of Web Access Control Lists (Web ACLs) utilized (30 per month), Number of Rules added per Web ACL (10 per month), Number of Rule Groups per Web ACL (10 per month), Number of Rules inside each Rule Group (10 per month)"
+US West (Oregon),Oregon RDS Estimates,Amazon RDS for PostgreSQL,0,1290.42,15485.04,USD,"Storage volume (General Purpose SSD (gp2)), Storage amount (1 TB per month), Nodes (1), Instance Type (db.m2.2xlarge), Utilization (On-Demand only) (100 %Utilized/Month), Deployment Option (Multi-AZ), Pricing Model (OnDemand), Additional backup storage (500 GB)"
+US West (Oregon),Oregon EC2 Estimates,Amazon EC2,0,657.36,7888.32,USD,"Operating system (Linux), Quantity (10), Pricing strategy (On-Demand Instances), Storage amount (50 GB), Instance type (t3.large)"
+US West (Oregon),Oregon App Server Estimate,Amazon EC2,0,938.7,11264.4,USD,"Operating system (Linux), Quantity (14), Pricing strategy (On-Demand Instances), Storage amount (50 GB), Instance type (c5.large)"
+US West (Oregon),Oregon VPC Estimate,Network Address Translation (NAT) Gateway,0,37.35,448.2,USD,Number of NAT Gateways (1)
+US West (Oregon),Oregon VPC Estimate,Data Transfer,0,102.4,1228.8,USD,"DT Inbound: Not selected (0 TB per month), DT Outbound: All other regions (5 TB per month), DT Intra-Region: (0 TB per month), Data transfer cost (102.4)"
+US West (Oregon),,Application Load Balancer,0,616.85,7402.2,USD,Number of Application Load Balancers (2)
+US West (Oregon),Oregon CloudWatch Estimate,Amazon CloudWatch,0,77.95,935.4,USD,"Number of Metrics (includes detailed and custom metrics) (50), Standard Logs: Data Ingested (50 GB), Logs Delivered to CloudWatch Logs: Data Ingested (50 GB), Logs Delivered to S3: Data Ingested (50 GB)"
+US West (Oregon),Oregon Firewall Estimates,AWS Web Application Firewall (WAF),0,2500,30000,USD,"Number of Web Access Control Lists (Web ACLs) utilized (20 per month), Number of Rules added per Web ACL (10 per month), Number of Rule Groups per Web ACL (10 per month), Number of Rules inside each Rule Group (10 per month)"
+,,,,,,,
+Total,,,,18783.87,,,
+,,,,,,,
+,,,,,,,
+"Since the budget has been increased to a maximum of $20,000 we decided to add additional resources listed to the infrastructure to increase overall performance and security",,,,,,,
+1. We introduced a new region: us-west-2 (Oregon) just in case there's a region failure in us-east-1 (N. Virginia). This is part of our disaster recovery plan. This also adds redundancy and improved performance to our customer in the western region.,,,,,,,
+"2. In relation to item 1, a number of 10 web servers were added while for the application servers, a total of 14 were added. These are hosted on us-west2 (Oregon)",,,,,,,
+3. We've added a replica DB in us-west-2 as part of item 1.,,,,,,,
+"4. Added load balancing, cloudwatch and VPC for us-west-2 as part of item 1",,,,,,,
+5. We added AWS Web Application Firewall on both regions to help protect our web applications against common web exploits that may affect availability and compromise the security of our infrastructure.,,,,,,,

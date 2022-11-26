@@ -1,0 +1,21 @@
+﻿Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+US East (N. Virginia),Route 53 Estimate,Amazon Route 53,0,456.75,5481,USD,"Number of domains stored (1), Hosted Zones (1), Basic Checks Within AWS (50), Number of Elastic Network Interfaces (5)"
+US East (N. Virginia),VPC Estimate,Network Address Translation (NAT) Gateway,0,37.35,448.2,USD,Number of NAT Gateways (1)
+US East (N. Virginia),VPC Estimate,Data Transfer,0,204.8,2457.6,USD,"DT Inbound: Internet (0 TB per month), DT Outbound: All other regions (5 TB per month), DT Intra-Region: (5 TB per month), Data transfer cost (204.8)"
+US East (N. Virginia),Appliction Load Balancer Estimate,Application Load Balancer,0,1200.85,14410.2,USD,Number of Application Load Balancers (2)
+US East (N. Virginia),Web Server Estimate,Amazon EC2,0,603.48,7241.76,USD,"Operating system (Linux), Quantity (14), Pricing strategy (EC2 Instance Savings Plans 1 Year No Upfront), Storage amount (50 GB), Instance type (t3.large)"
+US East (N. Virginia),Application Web Server Estimate,Amazon EC2,0,799.56,9594.72,USD,"Operating system (Linux), Quantity (18), Pricing strategy (EC2 Instance Savings Plans 1 Year No Upfront), Storage amount (50 GB), Instance type (c5.large)"
+US East (N. Virginia),S3 Estimate,S3 Standard,0,235.52,2826.24,USD,S3 Standard storage (10 TB per month)
+US East (N. Virginia),S3 Estimate,S3 Standard - Infrequent Access,0,128,1536,USD,S3 Standard-IA storage (10 TB per month)
+US East (N. Virginia),S3 Estimate,Data Transfer,0,20.48,245.76,USD,"DT Inbound: Not selected (0 TB per month), DT Outbound: All other regions (1 TB per month)"
+US East (N. Virginia),CloudFront Estimate,Amazon CloudFront,0,10.5,126,USD,"Data transfer out to internet (100 GB per month), Data transfer out to origin (100 GB per month), Number of requests (HTTPS) ( per month)"
+US East (N. Virginia),PostGres Estimate,Amazon RDS for PostgreSQL,0,2583.12,30997.44,USD,"Storage volume (General Purpose SSD (gp2)), Storage amount (1 TB per month), Nodes (2), Instance Type (db.m2.2xlarge), Utilization (On-Demand only) (100 %Utilized/Month), Deployment Option (Multi-AZ), Pricing Model (OnDemand), Additional backup storage (1 TB)"
+US East (N. Virginia),CloudWatch Estimate,Amazon CloudWatch,0,155.9,1870.8,USD,"Number of Metrics (includes detailed and custom metrics) (100), Standard Logs: Data Ingested (100 GB), Logs Delivered to CloudWatch Logs: Data Ingested (100 GB), Logs Delivered to S3: Data Ingested (100 GB)"
+,,,,,,,
+Total,,,,6436.31,,,
+,,,,,,,
+"Since the budget has been reduced to a maximum $6500, we've decided to do the changes below to reduced the cost of our infrastructure",,,,,,,
+"1. The pricing model of both web and application servers to EC2 Instance Savings Plan - 1 year reservation term from on-demand. This plan reduced the cost by reserving instances in advanced, without drastically lowering the number of servers which is needed to maintain the performance of our application.",,,,,,,
+"2.  In relation to item 1, we had to reduce the number of web servers from 16 to 14, and the number of application servers from 20 to 18 which should be enough to maintain performance and stability of our web application.",,,,,,,
+3.We had to reduce S3 Standard and S3 Standard IA storage from 20 TB per month to 10 TB per month respectively. In no way will this affect performance but we'll have to watch out th file size of our web assets.,,,,,,,
+"4. Finally, we reduced Route 53 basic checks from 100 to 50 and the number of elastic network interfaces from 10 to 5. This is not a drastic change but we might experience a bit of a performance drop if there's a spike in the number of users.",,,,,,,
